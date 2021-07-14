@@ -1,0 +1,32 @@
+<div class="container">
+      
+
+    <div class="row">
+      <div class="col-lg-12">
+        
+        <nav>
+            <h2 style="text-align: center; font-size: 42px; margin-top: 50px; font-weight: 700;">{{title | uppercase}}</h2> 
+            <h6 style="text-align: center; color: #fff;" >{{currentDate |date:"dd-MM-yyy / hh:mm"}}</h6>
+
+
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-matchs-tab" data-bs-toggle="tab" data-bs-target="#nav-matchs" type="button" role="tab" aria-controls="nav-matchs" aria-selected="true">Matchs</button>
+                <button class="nav-link" id="nav-teams-tab" data-bs-toggle="tab" data-bs-target="#nav-teams" type="button" role="tab" aria-controls="nav-teams" aria-selected="false">Teams</button>
+                <button class="nav-link" id="nav-players-tab" data-bs-toggle="tab" data-bs-target="#nav-players" type="button" role="tab" aria-controls="nav-players" aria-selected="false">Players</button>
+
+              </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-matchs" role="tabpanel" aria-labelledby="nav-matchs-tab">
+                <app-admin-matchs></app-admin-matchs>
+              </div>
+              <div class="tab-pane fade" id="nav-teams" role="tabpanel" aria-labelledby="nav-teams-tab">
+                  <app-admin-teams ></app-admin-teams>
+              </div>
+              <div class="tab-pane fade" id="nav-players" role="tabpanel" aria-labelledby="nav-players-tab">
+                <app-admin-players ></app-admin-players>
+            </div>
+            </div>
+      </div>
+    </div>
+  </div>

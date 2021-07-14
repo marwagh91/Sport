@@ -1,0 +1,42 @@
+<form>
+  <div class="text-center">
+  <label for="">Filter</label>
+  <input type="text" [(ngModel)]='term' [ngModelOptions]="{standalone:true}">
+  </div>
+ </form>
+
+
+<table class="table table-bordered">
+    <thead>
+      <tr style="color: #fff;">
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Number</th>
+        <th scope="col">Poste</th>
+        <th scope="col">Age</th>
+        <th scope="col">Actions</th>
+
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let p of players |filtre:term"  style="color: #fff;"> 
+        <td>{{p._id}}</td>
+        <td>{{p.name}}</td>
+        <td>{{p.number}}</td>
+        <td>{{p.poste}}</td>
+        <td>{{p.age}}</td>
+
+        <td>
+          <button type="button" class="btn btn-primary" (click)='displayPlayer(p._id)'>Display</button>
+          <button type="button" class="btn btn-info" (click)='editPlayer(p._id)'>Edit</button>
+          <button type="button" class="btn btn-danger"(click)='deletePlayer(p._id)'>Delete</button>
+
+
+        </td>
+
+
+      </tr>
+     
+     
+    </tbody>
+  </table>

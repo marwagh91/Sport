@@ -1,0 +1,32 @@
+<table class="table table-bordered">
+    <thead>
+      <tr style="color: #fff;">
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Staduim</th>
+        <th scope="col">Fondation</th>
+        <th scope="col">Actions</th>
+
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let t of teams" style="color: #fff;">
+        <td>{{t._id}}</td>
+        <td>{{t.name}}</td>
+        <td>{{t.staduim}}</td>
+        <td>{{t.fondation}}</td>
+
+        <td>
+          <button type="button" class="btn btn-primary" (click)='displayTeam(t._id)'>Display</button>
+          <button type="button" class="btn btn-info" (click)='editTeam(t._id)'>Edit</button>
+          <button type="button" class="btn btn-danger"(click)='deleteTeam(t._id)'>Delete</button>
+
+
+        </td>
+
+
+      </tr>
+     
+     
+    </tbody>
+  </table>

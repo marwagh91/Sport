@@ -1,0 +1,97 @@
+<div class="site-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <form [formGroup]="signupForm">
+            <div class="form-group">FirstName
+              <input type="text" class="form-control" placeholder="FirstName" required="required" formControlName="firstName">
+            </div>
+            <div *ngIf="signupForm.controls['firstName'].invalid &&(signupForm.controls['firstName'].touched ||signupForm.controls['firstName'].dirty)">
+                <div *ngIf="signupForm.controls['firstName'].errors.required">
+                    Firt Name is required
+
+                </div>
+                <div *ngIf="signupForm.controls['firstName'].errors.minlength">
+                    Firt Name must be  have at least 5 caracters
+
+                </div>
+            </div>
+            <div class="form-group">LastName
+                <input type="text" class="form-control" placeholder="LastName" required="required" formControlName="lastName">
+              </div>
+              <div *ngIf="signupForm.controls['lastName'].invalid &&(signupForm.controls['lastName'].touched ||signupForm.controls['lastName'].dirty)">
+                <div *ngIf="signupForm.controls['lastName'].errors.required">
+                    Firt Name is required
+
+                </div>
+                <div *ngIf="signupForm.controls['lastName'].errors.minlength">
+                    Firt Name must be  have at least 4 caracters
+
+                </div>
+            </div>
+            <div class="form-group">Email
+              <input type="text" class="form-control" placeholder="Email" formControlName="email">
+            </div>
+            <div *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].touched ||signupForm.controls['email'].dirty)">
+                <div *ngIf="signupForm.controls['email'].errors.required">
+                    email is required
+
+                </div>
+                <div *ngIf="signupForm.controls['email'].errors.email">
+                    invalid Email
+
+                </div>
+            </div>
+
+            <div class="form-group">Password
+              <input type="password" class="form-control" placeholder="Password" formControlName="password">
+            </div>
+            <div *ngIf="signupForm.controls['password'].invalid &&(signupForm.controls['password'].touched ||signupForm.controls['password'].dirty)">
+              <div *ngIf="signupForm.controls['password'].errors.required">
+                  Password is required
+
+              </div>
+              <div *ngIf="signupForm.controls['password'].errors.minlength">
+                  Password must be  have at least 8 caracters
+
+              </div>
+          </div>
+            <div class="form-group">Confirm Password
+                <input type="password" class="form-control" placeholder="Confirm Password" formControlName="confirmPassword">
+              </div>
+              <div *ngIf="signupForm.controls['confirmPassword].invalid &&
+              (signupForm.controls['confirmPassword].dirty ||
+             signupForm.controls['confirmPassword].touched)">
+              <div
+             *ngIf="signupForm.controls['confirmPassword].errors.mustMatch" class="textdanger">
+              Confirm Pwd must match PWD
+              </div>
+             </div>
+              <div class="form-group">Tel
+                <input type="tel" class="form-control" placeholder="Tel" required="required" formControlName="tel">
+              </div>
+              <div *ngIf="signupForm.controls['tel'].invalid &&(signupForm.controls['tel'].touched ||signupForm.controls['tel'].dirty)">
+                <div *ngIf="signupForm.controls['tel'].errors.required">
+                    Firt Name is required
+
+                </div>
+                <div *ngIf="signupForm.controls['tel'].errors.minlength">
+                    tel must be  have at least 8 caracters
+
+                </div>
+            </div>
+            <button type="button" (click)='filePicker.click()' class="btn btn-success">Add Avatar</button>
+            <div class="form-group">
+                <input style="visibility: hidden;" type="file" class="form-control" #filePicker
+                    (change)='onImageSelected($event)' />
+            </div>
+            <img [src]="imagePreview" *ngIf="imagePreview" class="rounded-circle" style="width: 100px; height: 100px;" >
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary py-3 px-5" (click)="signup(signupForm.value)">SIGNUP</button>
+            </div>
+          </form>  
+        </div>
+        
+      </div>
+    </div>
+  </div>
